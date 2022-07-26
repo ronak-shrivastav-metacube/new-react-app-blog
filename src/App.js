@@ -12,7 +12,8 @@ import HeaderMenu from './partiulars/navbar';
 import Home from './page/home'; 
 import About from './page/about'; 
 import Contact from './page/contact'; 
-
+import Timmer from './page/timmer'; 
+import Blog from './page/blog';
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/timmer" element={<Timmer />} />
+            <Route exact path="/blog" element={<Blog />} />
         </Routes>
       </Router>
     </>
