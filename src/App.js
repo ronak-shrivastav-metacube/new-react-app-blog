@@ -16,6 +16,7 @@ import Contact from './page/contact';
 import Timmer from './page/timmer';
 import BlogList from './components/BlogList'; 
 import Blog from './page/blog';
+import Register from './page/register';
 
 import TestingState from "./functional/TestingState";
 
@@ -24,7 +25,6 @@ function App() {
     <>
       <Router>
       <HeaderMenu />
-      <Sidebar />
         <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
@@ -33,7 +33,8 @@ function App() {
             <Route exact path="/blog" element={<Blog blogData={BlogList} />} />
             {/* for learning only */}
             <Route exact path="/checkState" element={<TestingState/>} />
-            <Route exact path="/comments" />
+            <Route exact path="/comments" element={<Sidebar />} />
+            <Route exact path="/register" element={<Register />} />
         </Routes>
       </Router>
     </>
