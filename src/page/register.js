@@ -10,7 +10,7 @@ class Register extends React.Component
                 fname : undefined, 
                 mname : undefined, 
                 lname : undefined, 
-                age : undefined, 
+                dob : undefined, 
             },
             contactDetailes : {
                 contactNumber : undefined,
@@ -29,8 +29,22 @@ class Register extends React.Component
     {
         e.preventDefault();
         this.setState({
-            personalDetailes:{fname : e.target.fname.value}
-        })
+            // personalDetailes: Object.assign({},this.state.personalDetailes, {fname : e.target.fname.value})
+            personalDetailes:{
+                fname : e.target.fname.value,
+                mname : e.target.mname.value,
+                lname : e.target.lname.value,
+                dob : e.target.dob.value,               
+            },
+            contactDetailes:{
+                contactNumber : e.target.number.value,
+                email : e.target.email.value,
+                address : e.target.address.value,
+            },
+            photograph : {
+                photograph:e.target.photograph.value
+            }
+        }, ()=>{console.log(this.state);})
         console.log('first : '+e.target.fname.value);
         const user = this.state;
         console.log('second : '+this.state.personalDetailes.fname);
@@ -121,7 +135,7 @@ class Register extends React.Component
                                 <p className="text-light lead card-title">Photograph and Other Datiles</p>
                             </div>
                             <div className="card-body">
-                                <input className="form-control" type="file" name="userPic" />
+                                <input className="form-control" type="file" name="photograph" />
                             </div>
                         </div>
 
@@ -131,6 +145,9 @@ class Register extends React.Component
                                 <button type="submit" className="btn btn-primary btn-sm">Submit </button>
                             </div>
                         </div>
+                        {JSON.stringify(this.state.personalDetailes)}
+                        {JSON.stringify(this.state.contactDetailes)}
+                        {JSON.stringify(this.state.photograph)}
                     </div>
                 </form>
             </section>
