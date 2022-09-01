@@ -9,8 +9,11 @@ export default function UserTemplate(props)
                     </div>
                     <div className="mb-0 card-body bg-danger text-light h5">
                         <div className="row">
-                            <div className="col-lg-8 col-md-8 col-xs-12 col-xs-12">
+                            <div className="col-lg-8 col-md-8 col-xs-12 col-xs-12 float-left">
                                 <p><span className="font-weight-bold">Name :</span> <span className="small font-italic"><strong><u>{props.userData.personalDetailes.fname} {props.userData.personalDetailes.mname} {props.userData.personalDetailes.lname}</u></strong></span></p> 
+                            </div>
+                            <div className="col-lg-4 col-md-4 col-xs-12 col-sm-12 float-right">
+                                <img src={props.userData.photograph.img} className="img-fluid w-50 rounded-circle" />
                             </div>
                         </div>
                         <div className="row">

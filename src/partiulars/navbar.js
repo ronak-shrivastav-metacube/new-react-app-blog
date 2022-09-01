@@ -17,6 +17,11 @@ export default function HeaderMenu()
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
                     <Nav.Link as={Link} to="/about">About</Nav.Link>
                     <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
+                    <Nav.Link as={Link} to="/timmer">Timmer</Nav.Link>
+                    <Nav.Link as={Link} to="/comments">Comments</Nav.Link>
+                    <Nav.Link as={Link} to="/todo">ToDo</Nav.Link>
+                    <Nav.Link as={Link} to="/todolist">Todo List</Nav.Link>
+                    
                 </Nav>
                 <Nav>
                     <Nav.Link as={Link} to="/register">Register</Nav.Link>

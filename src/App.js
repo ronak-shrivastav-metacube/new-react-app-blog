@@ -17,6 +17,9 @@ import Timmer from './page/timmer';
 import BlogList from './components/BlogList'; 
 import Blog from './page/blog';
 import Register from './page/register';
+import ShowFormAllData from './page/ShowFormAllData';
+import Todo from "./page/todo";
+import Todolist from "./page/todolist";
 
 import TestingState from "./functional/TestingState";
 
@@ -35,6 +38,9 @@ function App() {
             <Route exact path="/checkState" element={<TestingState/>} />
             <Route exact path="/comments" element={<Sidebar />} />
             <Route exact path="/register" element={<Register />} />
+            <Route exact path="/formAllData" element={<ShowFormAllData />}/>
+            <Route exact path="/todo" element={<Todo />}/>
+            <Route excate path="/todolist" element={<Todolist />} />
         </Routes>
       </Router>
     </>
