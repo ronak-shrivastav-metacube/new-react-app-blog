@@ -1,5 +1,7 @@
 import React, {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { AiOutlinePlusCircle } from 'react-icons/ai';
 import Todolist from "./todolist";
 
 function Todo ()
@@ -39,6 +41,10 @@ function Todo ()
         navigateX('/todolist',{replace:true});
     }
     
+    const gotoTodolist = ()=> {
+        navigateX('/todolist',{replace:true});
+    }
+
     return (
         <section className="my-4">
             <div className="container">
@@ -46,14 +52,22 @@ function Todo ()
                     <div className="offset-3 col-6">
                         <form onSubmit={submitHendller}>
                             <div className="form-group">
-                                <label>Name</label>
-                                <input type="text" name="name" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" placeholder="Enter Name..."/>
+                                <label>Title Todo</label>
+                                <input type="text" name="name" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" placeholder="Enter Title Of Todo..."/>
                             </div>
                             <div className="form-group">
                                 <label>Description</label>
                                 <textarea className="form-control" value={description} name="description" onChange={(e) => setDescription(e.target.value)} placeholder="Description...."></textarea>
                             </div>
-                            <button className="mt-4 btn btn-primary btn-sm" type="submit">Add</button>
+                            <div className="d-flex justify-content-between">
+                                <div>
+                                    <button className="mt-4 btn btn-primary btn-sm" type="submit"><AiOutlinePlusCircle /> Add</button>
+                                </div>
+                                <button type="button" className="mt-4 btn btn-primary btn-sm" onClick={gotoTodolist}>
+                                     Todo Lists <BsFillArrowRightCircleFill />
+                                </button>
+                            </div>
+
                         </form>
                     </div>
                 </div>

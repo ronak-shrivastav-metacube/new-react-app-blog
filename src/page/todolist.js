@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react';
-
+import { useNavigate } from "react-router-dom";
 import ModelBootstrap from '../components/modelBootstrap';
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 function  Todolist(porps)
 {
+    let navigateX = useNavigate();
     const [todos ,setTodos] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [todoId, setTodoId] = useState(0);
@@ -12,6 +14,8 @@ function  Todolist(porps)
         description : "",
         status : ""
     });
+
+    const [selectStatus, setSelectStatus] = useState("All");
 
     useEffect(()=>{
         setTodos(JSON.parse(localStorage.getItem('todosData')));
@@ -57,11 +61,44 @@ function  Todolist(porps)
         setTodos(JSON.parse(localStorage.getItem('todosData')));
     }
     
+    const addTodo = () => {
+        navigateX('/todo',{replace:true});
+    };
+
+    const filterTable = (e) => {
+        setSelectStatus(e);
+        let allTodos = JSON.parse(localStorage.getItem('todosData'))
+        let array = allTodos.filter((item)=>{
+            if(item.status === e)
+            {
+                return item;
+            }
+            else if(e === "All")
+            {
+                return item;
+            }
+        });
+        setTodos(array);
+    }
     return (
         <section className="my-5">
             <div className="container">
                 <div className="row">
+                    <div className="col-2">
+                        <button type="button" className="btn btn-sm btn-primary" onClick={addTodo}><BsFillArrowLeftCircleFill />    Add Todo</button>
+                    </div>
+                </div>
+
+                <div className="row">
                     <div className="offset-3 col-6">
+                        <div className="form-group col-3 mb-3">
+                            <label>Fitler By Status</label>
+                            <select className="form-control" value={selectStatus} onChange={(e) => filterTable(e.target.value)}>
+                                <option value="All" >All</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
                         <table className="table table-sm table-stripped table-bordered table-hover">
                             <thead className="bg-dark text-light">
                                 <tr className="text-center">

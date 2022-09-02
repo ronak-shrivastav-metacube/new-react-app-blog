@@ -12,7 +12,7 @@ const ModelBootstrap = (props) => {
       <div>
         <Modal show={props.isOpen} >
           <Modal.Header className="bg-primary text-light">
-            <Modal.Title>Todo Of {username}</Modal.Title>
+            <Modal.Title>Todo Title {username}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="row">
